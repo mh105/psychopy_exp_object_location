@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 20 19:45:17 2024
+    on Thu Jun 20 20:31:46 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -501,22 +501,22 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     image_fn_practice = image_filenames[:n_objects_practice]
     # package the images into nested lists of 3 objects
     image_fn_practice_list = [image_fn_practice[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials_practice)]
-    # novel objects appear one at a time so no need to package
+    # only a single novel object used during practice
     image_fn_novel_practice = image_filenames[n_objects_practice]
     
     # Main trials
     n_trials_per_condition = 12  # each condition is repeated 12 times
     n_trials = n_conditions * n_trials_per_condition  # 72 trials during main experiment
     n_objects = n_trials * n_objects_per_trial
-    # trial types - cast as list in order to pop()
-    trial_type_list = rng.permutation(conditions * n_trials_per_condition).tolist()
+    # trial types
+    trial_type_list = rng.permutation(conditions * n_trials_per_condition)
     # image locations
     image_loc_list = [rng.permutation(locations) for _ in range(n_trials)]
     # image filenames - skipping images already used for practice trials
     image_fn = image_filenames[n_objects_practice + 1:n_objects_practice + 1 + n_objects]
     # package the images into nested lists of 3 objects
     image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]
-    # novel objects appear one at a time so no need to package - cast as list in order to pop()
+    # novel objects appear one at a time so no need to package - cast to list for pop()
     image_fn_novel_list = image_filenames[n_objects_practice + 1 + n_objects:].tolist()
     
     
@@ -541,9 +541,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_intro_2 = keyboard.Keyboard(deviceName='key_instruct_intro_2')
     
     # --- Initialize components for Routine "instruct_condition" ---
-    # Run 'Begin Experiment' code from set_instruct_content
-    instruct_loop_num = 0
-    
     text_instruct_condition = visual.TextStim(win=win, name='text_instruct_condition',
         text='',
         font='Arial',
@@ -589,9 +586,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_review = keyboard.Keyboard(deviceName='key_instruct_review')
     
     # --- Initialize components for Routine "practice_setup" ---
-    # Run 'Begin Experiment' code from setup_practice_trial
-    trial_counter = 0
-    
     
     # --- Initialize components for Routine "trial" ---
     background = visual.Rect(
@@ -1236,7 +1230,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    instruct_loop = data.TrialHandler(nReps=3.0, method='sequential', 
+    instruct_loop = data.TrialHandler(nReps=3.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='instruct_loop')
@@ -1267,10 +1261,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         # Run 'Begin Routine' code from set_instruct_content
-        from pprint import pprint
-        pprint(thisInstruct_loop)
-        
-        if instruct_loop_num == 0:  # Remember Object Condition
+        if instruct_loop.thisRepN == 0:  # Remember Object Condition
             instruct_condition_text = "Remember Object trial: In this type of trial you need to remember the identity of the objects shown to you.\n"
             instruct_condition_text += "\n"
             instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8 second delay. "
@@ -1289,7 +1280,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             instruct_response_text += "\n"
             instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
             
-        elif instruct_loop_num == 1:  # Remember Location Condition
+        elif instruct_loop.thisRepN == 1:  # Remember Location Condition
             instruct_condition_text = "Remember Location trial: In this type of trial you need to remember the location of the objects shown to you.\n"
             instruct_condition_text += "\n"
             instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8 second delay. "
@@ -1308,7 +1299,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             instruct_response_text += "\n"
             instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
         
-        elif instruct_loop_num == 2:  # Remember Object and Location Condition
+        elif instruct_loop.thisRepN == 2:  # Remember Object and Location Condition
             instruct_condition_text = "Remember Object and Location trial: In this type of trial you need to remember both the identity of the objects and their locations.\n"
             instruct_condition_text += "\n"
             instruct_condition_text += "As with the other trials, you will see 3 objects appearing one at a time followed by an 8 second delay. "
@@ -1326,8 +1317,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_response_text += "\n"
             instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
-        
-        instruct_loop_num += 1
         
         text_instruct_condition.setText(instruct_condition_text)
         # create starting attributes for key_instruct_condition
@@ -1763,9 +1752,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisExp.addData('practice_setup.started', globalClock.getTime(format='float'))
             # Run 'Begin Routine' code from setup_practice_trial
             # Obtain practice trial specific variables
-            image_fn = image_fn_practice_list[trial_counter]
-            image_loc = image_loc_practice_list[trial_counter]
-            trial_type = trial_type_practice_list[trial_counter]
+            image_fn = image_fn_practice_list[practice_trials.thisRepN]
+            image_loc = image_loc_practice_list[practice_trials.thisRepN]
+            trial_type = trial_type_practice_list[practice_trials.thisRepN]
             
             # Set up prompt, filenames, location, etc.
             if trial_type == 'objsame':
@@ -1776,7 +1765,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 
             elif trial_type == 'objdifferent':
                 test_prompt = "Remember Object"
-                image_test_fn = image_fn_novel_practice  # a novel object
+                image_test_fn = image_fn_novel_practice  # the novel object for practice
                 image_test_loc = [0, 0]  # image location: center
                 correct_resp = 'n'
                 
@@ -1807,9 +1796,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 image_test_fn = image_fn[i]  # show the selected object
                 image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations
                 correct_resp = 'n'
-            
-            else:
-                error("Unrecognized trial type. Please double check.")
             
             # keep track of which components have finished
             practice_setupComponents = []
@@ -1861,9 +1847,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             thisExp.addData('practice_setup.stopped', globalClock.getTime(format='float'))
-            # Run 'End Routine' code from setup_practice_trial
-            trial_counter += 1
-            
             # the Routine "practice_setup" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -2546,7 +2529,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('practice_feedback.started', globalClock.getTime(format='float'))
             # Run 'Begin Routine' code from set_feedback_text
-            if not key_response_test.keys:
+            if not key_response_test.keys:  # no key pressed
                 feedback_text = 'Respond Faster'
                 feedback_text_color = [-1, -1, -1]  # black
             elif key_response_test.keys == correct_resp:
@@ -2809,10 +2792,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             practice_loop.addData('key_checkpoint.rt', key_checkpoint.rt)
             practice_loop.addData('key_checkpoint.duration', key_checkpoint.duration)
         # Run 'End Routine' code from code_checkpoint
-        if key_checkpoint.keys == 'r':  # repeat the practice trials
-            # reset trial counter variable
-            trial_counter = 0
-        else:  # 'o' means proceed to main experiment
+        if key_checkpoint.keys == 'o':  # proceed to main experiment
             practice_loop.finished = True
         
         # the Routine "practice_checkpoint" was not non-slip safe, so reset the non-slip timer
@@ -2965,9 +2945,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         thisExp.addData('trial_setup.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from setup_image_trial
         # Obtain trial specific variables
-        image_fn = image_fn_list.pop()
-        image_loc = image_loc_list.pop()
-        trial_type = trial_type_list.pop()
+        image_fn = image_fn_list[trials.thisRepN]
+        image_loc = image_loc_list[trials.thisRepN]
+        trial_type = trial_type_list[trials.thisRepN]
         
         # Set up prompt, filenames, location, etc.
         if trial_type == 'objsame':
@@ -2977,7 +2957,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
         elif trial_type == 'objdifferent':
             test_prompt = "Remember Object"
-            image_test_fn = image_fn_novel_list.pop()  # a novel object
+            image_test_fn = image_fn_novel_list.pop()  # get a new novel object
             image_test_loc = [0, 0]  # image location: center
             
         elif trial_type == 'locsame':
@@ -3003,9 +2983,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             _ = index.pop(i)  # remove the selected index from the list
             image_test_fn = image_fn[i]  # show the selected object
             image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations
-        
-        else:
-            error("Unrecognized trial type. Please double check.")
         
         # keep track of which components have finished
         trial_setupComponents = []
