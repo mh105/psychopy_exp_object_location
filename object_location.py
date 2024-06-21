@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Fri Jun 21 08:12:55 2024
+    on Fri Jun 21 13:59:05 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -166,7 +166,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/alexhe/Dropbox (Personal)/Active_projects/PsychoPy/exp_object_location/object_location.py',
+        originPath='/Users/juliaglueck/Documents/GithubRepositories/object_location_task/psychopy_exp_object_location/object_location.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -1750,11 +1750,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             instruct_diagram_filename = "resource/object_trial_diagram.tif"
             
-            instruct_response_text = "Remember Object Trial:\n"  # This needs to be updated!
+            instruct_response_text = "Remember Object Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If you recognize the test object, press the 'Y' key to indicate that YES, the test object was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If you do NOT recognize the test object, press the 'N' key to indicate that NO, the test object was NOT in the 3-object sequence."
             
         elif instruct_loop.thisRepN == 1:  # Remember Location Condition
             instruct_condition_text = "Remember Location trial: In this type of trial you need to remember the location of the objects shown to you.\n"
@@ -1769,11 +1769,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             instruct_diagram_filename = "resource/location_trial_diagram.tif"
         
-            instruct_response_text = "Remember Location Trial:\n"  # This needs to be updated!
+            instruct_response_text = "Remember Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If the square indicated by the dot was previously occupied, press the 'Y' key to indicate that YES, one of the objects in the 3-object sequence was in this square.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If the square indicated by the dot was NOT previously occupied, press the 'N' key to indicate that NO, none of the objects in the 3-object sequence were in this square."
         
         elif instruct_loop.thisRepN == 2:  # Remember Object and Location Condition
             instruct_condition_text = "Remember Object and Location trial: In this type of trial you need to remember both the identity of the objects and their locations.\n"
@@ -1790,9 +1790,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             instruct_response_text = "Remember Object and Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence."
         
         text_instruct_condition.setText(instruct_condition_text)
         # create starting attributes for key_instruct_condition
