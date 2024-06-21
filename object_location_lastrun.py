@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 20 17:01:40 2024
+    on Thu Jun 20 19:45:17 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1267,6 +1267,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         # Run 'Begin Routine' code from set_instruct_content
+        from pprint import pprint
+        pprint(thisInstruct_loop)
+        
         if instruct_loop_num == 0:  # Remember Object Condition
             instruct_condition_text = "Remember Object trial: In this type of trial you need to remember the identity of the objects shown to you.\n"
             instruct_condition_text += "\n"
