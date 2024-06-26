@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 20 21:46:47 2024
+    on Tue Jun 25 20:07:07 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -95,7 +95,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [2560, 1440]
+_winSize = [1728, 1117]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -970,11 +970,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-18.0);
     
-    # --- Initialize components for Routine "_thank_you" ---
+    # --- Initialize components for Routine "__end__" ---
     text_thank_you = visual.TextStim(win=win, name='text_thank_you',
         text='Thank you. You have completed this task!',
         font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
@@ -1386,7 +1386,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Run Routine "__start__" ---
     routineForceEnded = not continueRoutine
-    while continueRoutine:
+    while continueRoutine and routineTimer.getTime() < 2.0:
         # get current time
         t = routineTimer.getTime()
         tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -1425,14 +1425,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_start.setAutoDraw(False)
         
         # if read_start is starting this frame...
-        if read_start.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+        if read_start.status == NOT_STARTED and t >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             read_start.frameNStart = frameN  # exact frame index
             read_start.tStart = t  # local t and not account for scr refresh
             read_start.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             read_start.status = STARTED
-            read_start.play(when=win)  # sync with win flip
+            read_start.play()  # start the sound (it finishes automatically)
         
         # if read_start is stopping this frame...
         if read_start.status == STARTED:
@@ -1493,9 +1493,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisComponent.setAutoDraw(False)
     read_start.pause()  # ensure sound has stopped at end of Routine
     read_start.status = PAUSED
+    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+    if routineForceEnded:
+        routineTimer.reset()
+    else:
+        routineTimer.addTime(-2.000000)
     thisExp.nextEntry()
-    # the Routine "__start__" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     
     # --- Prepare to start Routine "instruct_1" ---
     continueRoutine = True
@@ -1750,11 +1753,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             instruct_diagram_filename = "resource/object_trial_diagram.tif"
             
-            instruct_response_text = "Remember Object Trial:\n"  # This needs to be updated!
+            instruct_response_text = "Remember Object Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If you recognize the test object, press the 'Y' key to indicate that YES, the test object was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If you do NOT recognize the test object, press the 'N' key to indicate that NO, the test object was NOT in the 3-object sequence."
             
         elif instruct_loop.thisRepN == 1:  # Remember Location Condition
             instruct_condition_text = "Remember Location trial: In this type of trial you need to remember the location of the objects shown to you.\n"
@@ -1769,11 +1772,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
             instruct_diagram_filename = "resource/location_trial_diagram.tif"
         
-            instruct_response_text = "Remember Location Trial:\n"  # This needs to be updated!
+            instruct_response_text = "Remember Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If the square indicated by the dot was previously occupied, press the 'Y' key to indicate that YES, one of the objects in the 3-object sequence was in this square.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If the square indicated by the dot was NOT previously occupied, press the 'N' key to indicate that NO, none of the objects in the 3-object sequence were in this square."
         
         elif instruct_loop.thisRepN == 2:  # Remember Object and Location Condition
             instruct_condition_text = "Remember Object and Location trial: In this type of trial you need to remember both the identity of the objects and their locations.\n"
@@ -1790,9 +1793,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             instruct_response_text = "Remember Object and Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate YES that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate NO the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence."
         
         text_instruct_condition.setText(instruct_condition_text)
         # create starting attributes for key_instruct_condition
@@ -2913,9 +2916,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     theseKeys = key_response_test.getKeys(keyList=['y', 'n'], ignoreKeys=["escape"], waitRelease=False)
                     _key_response_test_allKeys.extend(theseKeys)
                     if len(_key_response_test_allKeys):
-                        key_response_test.keys = _key_response_test_allKeys[0].name  # just the first key pressed
-                        key_response_test.rt = _key_response_test_allKeys[0].rt
-                        key_response_test.duration = _key_response_test_allKeys[0].duration
+                        key_response_test.keys = _key_response_test_allKeys[-1].name  # just the last key pressed
+                        key_response_test.rt = _key_response_test_allKeys[-1].rt
+                        key_response_test.duration = _key_response_test_allKeys[-1].duration
                         # a response ends the routine
                         continueRoutine = False
                 # Run 'Each Frame' code from trigger_trial
@@ -4138,9 +4141,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 theseKeys = key_response_test.getKeys(keyList=['y', 'n'], ignoreKeys=["escape"], waitRelease=False)
                 _key_response_test_allKeys.extend(theseKeys)
                 if len(_key_response_test_allKeys):
-                    key_response_test.keys = _key_response_test_allKeys[0].name  # just the first key pressed
-                    key_response_test.rt = _key_response_test_allKeys[0].rt
-                    key_response_test.duration = _key_response_test_allKeys[0].duration
+                    key_response_test.keys = _key_response_test_allKeys[-1].name  # just the last key pressed
+                    key_response_test.rt = _key_response_test_allKeys[-1].rt
+                    key_response_test.duration = _key_response_test_allKeys[-1].duration
                     # a response ends the routine
                     continueRoutine = False
             # Run 'Each Frame' code from trigger_trial
@@ -4274,15 +4277,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         stimOut=params,
         dataOut=['n','all_mean','all_std', 'all_raw'])
     
-    # --- Prepare to start Routine "_thank_you" ---
+    # --- Prepare to start Routine "__end__" ---
     continueRoutine = True
     # update component parameters for each repeat
     read_thank_you.setSound('resource/thank_you.wav', secs=2.7, hamming=True)
     read_thank_you.setVolume(1.0, log=False)
     read_thank_you.seek(0)
+    # Run 'Begin Routine' code from trigger_trial_block_end
+    # End of main experiment trial block
+    dev.activate_line(bitmask=block_end_code)
+    eyetracker.sendMessage(block_end_code)
+    
     # keep track of which components have finished
-    _thank_youComponents = [text_thank_you, read_thank_you]
-    for thisComponent in _thank_youComponents:
+    __end__Components = [text_thank_you, read_thank_you]
+    for thisComponent in __end__Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -4294,7 +4302,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "_thank_you" ---
+    # --- Run Routine "__end__" ---
     routineForceEnded = not continueRoutine
     while continueRoutine and routineTimer.getTime() < 3.0:
         # get current time
@@ -4335,14 +4343,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_thank_you.setAutoDraw(False)
         
         # if read_thank_you is starting this frame...
-        if read_thank_you.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+        if read_thank_you.status == NOT_STARTED and t >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             read_thank_you.frameNStart = frameN  # exact frame index
             read_thank_you.tStart = t  # local t and not account for scr refresh
             read_thank_you.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             read_thank_you.status = STARTED
-            read_thank_you.play(when=win)  # sync with win flip
+            read_thank_you.play()  # start the sound (it finishes automatically)
         
         # if read_thank_you is stopping this frame...
         if read_thank_you.status == STARTED:
@@ -4368,7 +4376,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in _thank_youComponents:
+        for thisComponent in __end__Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -4377,8 +4385,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "_thank_you" ---
-    for thisComponent in _thank_youComponents:
+    # --- Ending Routine "__end__" ---
+    for thisComponent in __end__Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     read_thank_you.pause()  # ensure sound has stopped at end of Routine
