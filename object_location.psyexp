@@ -1068,7 +1068,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="1.6" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
         <Param val="1" valType="num" updates="constant" name="volume"/>
       </SoundComponent>
       <CodeComponent name="trigger_table" plugin="None">
@@ -1132,7 +1132,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="0.0" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="constant" name="stopWithRoutine"/>
         <Param val="False" valType="bool" updates="None" name="syncScreenRefresh"/>
       </EyetrackerRecordComponent>
@@ -1756,7 +1756,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="2.7" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
         <Param val="1" valType="num" updates="constant" name="volume"/>
       </SoundComponent>
       <CodeComponent name="trigger_trial_block_end" plugin="None">
