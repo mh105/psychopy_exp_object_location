@@ -1350,7 +1350,7 @@
         <Param val="Please give us a moment to check whether practice trials need to be repeated..." valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+        <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_checkpoint" plugin="None">
         <Param val="'r', 'o'" valType="list" updates="constant" name="allowedKeys"/>
