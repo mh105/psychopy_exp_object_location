@@ -1385,7 +1385,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if key_checkpoint.keys == 'o':  # proceed to main experiment&amp;#10;    practice_loop.finished = True&amp;#10;else:&amp;#10;    # Start another practice block&amp;#10;    dev.activate_line(bitmask=block_start_code)&amp;#10;    eyetracker.sendMessage(block_start_code)&amp;#10;    core.wait(500)  # wait 500ms&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="if key_checkpoint.keys == 'o':  # proceed to main experiment&amp;#10;    practice_loop.finished = True&amp;#10;else:&amp;#10;    # Start another practice block&amp;#10;    dev.activate_line(bitmask=block_start_code)&amp;#10;    eyetracker.sendMessage(block_start_code)&amp;#10;    core.wait(0.5)  # wait 500ms&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="code_checkpoint" valType="code" updates="None" name="name"/>
       </CodeComponent>

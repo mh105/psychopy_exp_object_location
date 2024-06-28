@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Tue Jun 25 20:07:01 2024
+    on Thu Jun 27 18:44:31 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -95,7 +95,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [1728, 1117]
+_winSize = [2560, 1440]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -3296,7 +3296,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # Start another practice block
             dev.activate_line(bitmask=block_start_code)
             eyetracker.sendMessage(block_start_code)
-            core.wait(500)  # wait 500ms
+            core.wait(0.5)  # wait 500ms
         
         # the Routine "practice_checkpoint" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
