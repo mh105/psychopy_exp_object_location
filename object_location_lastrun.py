@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 27 18:44:37 2024
+    on Thu Jun 27 23:32:51 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -354,6 +354,12 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_instruct_review',
         )
+    if deviceManager.getDevice('key_practice_repeat') is None:
+        # initialise key_practice_repeat
+        key_practice_repeat = deviceManager.addDevice(
+            deviceClass='keyboard',
+            deviceName='key_practice_repeat',
+        )
     if deviceManager.getDevice('key_response_test') is None:
         # initialise key_response_test
         key_response_test = deviceManager.addDevice(
@@ -674,13 +680,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_review" ---
     text_instruct_review = visual.TextStim(win=win, name='text_instruct_review',
-        text="REVIEW\n\nThere are 3 types of trials in this experiment:\n'Remember Object'\n'Remember Location'\n'Remember Object and Location'.\n\nNote that these 3 types of trials will be intermixed throughout the experiment. This means that you will not know whether you need to respond to the Object or the Location or both until you see the Prompt screen.\n\n\nPress the spacebar to start practice trials",
+        text="REVIEW\n\nThere are 3 types of trials in this experiment:\n'Remember Object'\n'Remember Location'\n'Remember Object and Location'.\n\nNote that these 3 types of trials will be intermixed throughout the experiment. This means that you will not know whether you need to respond to the Object or the Location or both until you see the prompt screen. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_review = keyboard.Keyboard(deviceName='key_instruct_review')
+    
+    # --- Initialize components for Routine "instruct_practice_repeat" ---
+    test_practice_repeat = visual.TextStim(win=win, name='test_practice_repeat',
+        text="We will repeat the practice trials one more time.\n\nRemember: There are 3 types of trials in this experiment: 'Remember Object', 'Remember Location', and 'Remember Object and Location'.\n\nPress the 'Y' key to indicate that YES you recognize the object, location, or object in the right location depending on the type of trial, and press the 'N' key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        font='Arial',
+        units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    key_practice_repeat = keyboard.Keyboard(deviceName='key_practice_repeat')
     
     # --- Initialize components for Routine "practice_setup" ---
     
@@ -828,7 +844,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_checkpoint = visual.TextStim(win=win, name='text_checkpoint',
         text='Please give us a moment to check whether practice trials need to be repeated...',
         font='Arial',
-        units='norm', pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
@@ -836,7 +852,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_instruct_begin = visual.TextStim(win=win, name='text_instruct_begin',
-        text="Great job! We will now begin the experiment.\n\nAs a reminder, the trials will ask you to remember the object, the location, or the object and its location.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object, location, or the object and its location are the same as shown in the 3-object sequence each time.\n\n\nPress the spacebar to start",
+        text="Great job! We will now begin the experiment.\n\nAs a reminder, the trials will ask you to remember the object, the location, or the object and its location.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object, location, or the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start",
         font='Arial',
         units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -2180,6 +2196,114 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisPractice_loop != None:
             for paramName in thisPractice_loop:
                 globals()[paramName] = thisPractice_loop[paramName]
+        
+        # --- Prepare to start Routine "instruct_practice_repeat" ---
+        continueRoutine = True
+        # update component parameters for each repeat
+        # create starting attributes for key_practice_repeat
+        key_practice_repeat.keys = []
+        key_practice_repeat.rt = []
+        _key_practice_repeat_allKeys = []
+        # Run 'Begin Routine' code from skip_routine_check
+        # Skip this routine if first time doing practice
+        if practice_loop.thisRepN == 0:
+            continueRoutine = False
+        
+        # keep track of which components have finished
+        instruct_practice_repeatComponents = [test_practice_repeat, key_practice_repeat]
+        for thisComponent in instruct_practice_repeatComponents:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "instruct_practice_repeat" ---
+        routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *test_practice_repeat* updates
+            
+            # if test_practice_repeat is starting this frame...
+            if test_practice_repeat.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                test_practice_repeat.frameNStart = frameN  # exact frame index
+                test_practice_repeat.tStart = t  # local t and not account for scr refresh
+                test_practice_repeat.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(test_practice_repeat, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                test_practice_repeat.status = STARTED
+                test_practice_repeat.setAutoDraw(True)
+            
+            # if test_practice_repeat is active this frame...
+            if test_practice_repeat.status == STARTED:
+                # update params
+                pass
+            
+            # *key_practice_repeat* updates
+            waitOnFlip = False
+            
+            # if key_practice_repeat is starting this frame...
+            if key_practice_repeat.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+                # keep track of start time/frame for later
+                key_practice_repeat.frameNStart = frameN  # exact frame index
+                key_practice_repeat.tStart = t  # local t and not account for scr refresh
+                key_practice_repeat.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(key_practice_repeat, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                key_practice_repeat.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(key_practice_repeat.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(key_practice_repeat.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if key_practice_repeat.status == STARTED and not waitOnFlip:
+                theseKeys = key_practice_repeat.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+                _key_practice_repeat_allKeys.extend(theseKeys)
+                if len(_key_practice_repeat_allKeys):
+                    key_practice_repeat.keys = _key_practice_repeat_allKeys[-1].name  # just the last key pressed
+                    key_practice_repeat.rt = _key_practice_repeat_allKeys[-1].rt
+                    key_practice_repeat.duration = _key_practice_repeat_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in instruct_practice_repeatComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "instruct_practice_repeat" ---
+        for thisComponent in instruct_practice_repeatComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # the Routine "instruct_practice_repeat" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
         
         # set up handler to look after randomisation of conditions etc
         practice_trials = data.TrialHandler(nReps=n_trials_practice, method='random', 
