@@ -140,23 +140,6 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
-      <CodeComponent name="trigger_practice_block" plugin="None">
-        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Beginning of practice block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Py" valType="str" updates="None" name="Code Type"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="trigger_practice_block" valType="code" updates="None" name="name"/>
-      </CodeComponent>
     </Routine>
     <Routine name="trial">
       <RoutineSettingsComponent name="trial" plugin="None">
@@ -1378,14 +1361,14 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# End of practice block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# End of practice block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;# no need to wait 500ms as this routine waits for experimenter key press&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if key_checkpoint.keys == 'o':  # proceed to main experiment&amp;#10;    practice_loop.finished = True&amp;#10;else:&amp;#10;    # Start another practice block&amp;#10;    dev.activate_line(bitmask=block_start_code)&amp;#10;    eyetracker.sendMessage(block_start_code)&amp;#10;    core.wait(0.5)  # wait 500ms&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="if key_checkpoint.keys == 'o':  # proceed to main experiment&amp;#10;    practice_loop.finished = True&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="code_checkpoint" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -1458,7 +1441,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Beginning of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Beginning of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;# no need to wait 500ms as this routine waits for subject key press&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1765,7 +1748,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# End of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# End of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;core.wait(0.5)  # wait 500ms before end of experiment triggers&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1845,7 +1828,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="n" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Skip this routine if first time doing practice&amp;#10;if practice_loop.thisRepN == 0:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Start a practice block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;core.wait(0.5)  # wait 500ms before trial triggers&amp;#10;&amp;#10;# Skip this routine if first time doing practice&amp;#10;if practice_loop.thisRepN == 0:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
