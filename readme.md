@@ -1,4 +1,8 @@
 # Object location task
+Last edit: 07/02/2024
+
+## Edit history
+07/02/2024 by Alex He - created finalized first draft version
 
 ## Description
 This is a short-term memory task using a two-alternative forced choice (2AFC) test on old/new recognition of visual picture stimuli. The behavioral paradigm is adapted from a long history of object-location memory tasks:
