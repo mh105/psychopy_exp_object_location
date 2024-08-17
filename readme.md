@@ -1,7 +1,8 @@
 # Object location task
-Last edit: 08/13/2024
+Last edit: 08/17/2024
 
 ## Edit history
+- 08/17/2024 by Alex He - added more print messages during c-pod connection
 - 08/13/2024 by Alex He - generated experiment scripts on python 3.8 for PsychoPy 2024.2.1
 - 08/13/2024 by Julia Glueck - corrected typos in instructions, added trial_type and correct_resp to output csv file
 - 07/02/2024 by Alex He - created finalized first draft version
