@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Tue Sep 17 17:07:05 2024
+    on Wed Sep 18 20:58:49 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -685,6 +685,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # novel objects appear one at a time so no need to package - cast to list for pop()
     image_fn_novel_list = image_filenames[n_objects_practice + 1 + n_objects:].tolist()
     
+    assert len(image_filenames) == 247, "Incorrect number of picture stimuli loaded."
+    assert len(image_filenames) == (n_objects_per_trial + 1 / n_conditions) * (n_trials_practice + n_trials), "Incorrect number of trials."
+    
     
     # --- Initialize components for Routine "instruct_1" ---
     text_instruct_intro_1 = visual.TextStim(win=win, name='text_instruct_intro_1',
@@ -743,7 +746,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_review" ---
     text_instruct_review = visual.TextStim(win=win, name='text_instruct_review',
-        text="REVIEW\n\nThere are 3 types of trials in this experiment:\n'Remember Object'\n'Remember Location'\n'Remember Object and Location'.\n\nNote that these 3 types of trials will be intermixed throughout the experiment. This means that you will not know whether you need to respond to the Object or the Location or both until you see the prompt screen. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        text="REVIEW\n\nThere are 3 types of trials in this experiment:\n'Remember Object'\n'Remember Location'\n'Remember Object and Location'.\n\nNote that these 3 types of trials will be intermixed throughout the experiment. This means that you will not know whether you need to respond to the Object or the Location or both until you see the prompt screen. During the delay, try to keep looking at the center of the screen. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -753,7 +756,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_practice_repeat" ---
     test_practice_repeat = visual.TextStim(win=win, name='test_practice_repeat',
-        text="We will repeat the practice trials one more time.\n\nRemember: There are 3 types of trials in this experiment: 'Remember Object', 'Remember Location', and 'Remember Object and Location'.\n\nPress the 'Y' key to indicate that YES you recognize the object, location, or object in the right location depending on the type of trial, and press the 'N' key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        text="We will repeat the practice trials one more time.\n\nRemember: There are 3 types of trials in this experiment: 'Remember Object', 'Remember Location', and 'Remember Object and Location'.\n\nPress the 'Y' key to indicate that YES you recognize the object, location, or object in the same location depending on the type of trial, and press the 'N' key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -915,7 +918,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_instruct_begin = visual.TextStim(win=win, name='text_instruct_begin',
-        text="Great job! We will now begin the experiment.\n\nAs a reminder, the trials will ask you to remember the object, the location, or the object and its location.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object, location, or the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\nYou will no longer receive feedback on your responses.\n\n\nPress the spacebar to start",
+        text="Great job! We will now begin the experiment.\n\nAs a reminder, the trials will ask you to remember the object, the location, or the object and its location. Please keep looking at the center of the screen during the delay.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object, location, or the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\nYou will no longer receive feedback on your responses.\n\n\nPress the spacebar to start",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -1998,11 +2001,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if instruct_loop.thisRepN == 0:  # Remember Object Condition
             instruct_condition_text = "Remember Object trial: In this type of trial you need to remember the identity of the objects shown to you.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8 second delay. "
+            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8-second delay. "
             instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Object'. "
             instruct_condition_text += "This prompt screen will be followed by a test object in the center of the grid.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "'Remember Object' tells you that you need to decide whether this test object was one of the 3-object sequence just shown to you.\n"
+            instruct_condition_text += "'Remember Object' tells you that you need to decide whether this test object was one of the 3 objects just shown to you.\n"
             instruct_condition_text += "\n\n"
             instruct_condition_text += "Press the spacebar to continue"
         
@@ -2017,7 +2020,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         elif instruct_loop.thisRepN == 1:  # Remember Location Condition
             instruct_condition_text = "Remember Location trial: In this type of trial you need to remember the location of the objects shown to you.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8 second delay. "
+            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8-second delay. "
             instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Location'. "
             instruct_condition_text += "This prompt screen will be followed by a dot in one of the squares of the grid.\n"
             instruct_condition_text += "\n"
@@ -2036,11 +2039,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         elif instruct_loop.thisRepN == 2:  # Remember Object and Location Condition
             instruct_condition_text = "Remember Object and Location trial: In this type of trial you need to remember both the identity of the objects and their locations.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "As with the other trials, you will see 3 objects appearing one at a time followed by an 8 second delay. "
+            instruct_condition_text += "As with the other trials, you will see 3 objects appearing one at a time followed by an 8-second delay. "
             instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Object and Location'. "
             instruct_condition_text += "This prompt screen will be followed by a test object in one of the squares of the grid.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "'Remember Object and Location' tells you that you need to decide whether this object is in the right location. What right means is that the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_condition_text += "'Remember Object and Location' tells you that you need to decide whether this object is in the same location. In other words, whether the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_condition_text += "\n\n"
             instruct_condition_text += "Press the spacebar to continue"
             
@@ -2048,9 +2051,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             instruct_response_text = "Remember Object and Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the right location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If the test object is in the same location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the right location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If the test object is NOT in the same location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence."
         
         text_instruct_condition.setText(instruct_condition_text)
         # create starting attributes for key_instruct_condition
@@ -2798,8 +2801,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             practice_setup.tStop = globalClock.getTime(format='float')
             practice_setup.tStopRefresh = tThisFlipGlobal
             # Run 'End Routine' code from setup_practice_trial
-            thisExp.addData('trial_type', trial_type) # adding Trial Type to .csv file
-            thisExp.addData('correct_response', correct_resp) # adding Correct Response to .csv file
+            thisExp.addData('image_fn_1', image_fn[0])  # adding Encoding Image Names to .csv file
+            thisExp.addData('image_fn_2', image_fn[1])
+            thisExp.addData('image_fn_3', image_fn[2])
+            
+            thisExp.addData('image_loc_1', image_loc[0])  # adding Encoding Image Locations to .csv file
+            thisExp.addData('image_loc_2', image_loc[1])
+            thisExp.addData('image_loc_3', image_loc[2])
+            
+            thisExp.addData('trial_type', trial_type)  # adding Trial Type to .csv file
+            
+            thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file
+            thisExp.addData('image_test_loc', image_test_loc)  # adding Test Image Name to .csv file
+            thisExp.addData('correct_response', correct_resp)  # adding Correct Response to .csv file
             
             # the Routine "practice_setup" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -4169,8 +4183,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         trial_setup.tStop = globalClock.getTime(format='float')
         trial_setup.tStopRefresh = tThisFlipGlobal
         # Run 'End Routine' code from setup_image_trial
-        thisExp.addData('trial_type', trial_type) # adding Trial Type to .csv file
-        thisExp.addData('correct_response', correct_resp) # adding Correct Response to .csv file
+        thisExp.addData('image_fn_1', image_fn[0])  # adding Encoding Image Names to .csv file
+        thisExp.addData('image_fn_2', image_fn[1])
+        thisExp.addData('image_fn_3', image_fn[2])
+        
+        thisExp.addData('image_loc_1', image_loc[0])  # adding Encoding Image Locations to .csv file
+        thisExp.addData('image_loc_2', image_loc[1])
+        thisExp.addData('image_loc_3', image_loc[2])
+        
+        thisExp.addData('trial_type', trial_type)  # adding Trial Type to .csv file
+        
+        thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file
+        thisExp.addData('image_test_loc', image_test_loc)  # adding Test Image Name to .csv file
+        thisExp.addData('correct_response', correct_resp)  # adding Correct Response to .csv file
         
         # the Routine "trial_setup" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
