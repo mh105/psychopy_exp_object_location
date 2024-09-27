@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Wed Sep 25 11:41:41 2024
+    on Fri Sep 27 11:11:11 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -654,7 +654,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     n_objects_per_trial = 3  # each trial presents 3 objects in a sequence
     locations = [(-0.2, 0.2), (0, 0.2), (0.2, 0.2),
                  (-0.2, 0),             (0.2, 0),
-                 (-0.2, -0.2), (0, -0.2), (0.2, -0.2)]                
+                 (-0.2, -0.2), (0, -0.2), (0.2, -0.2)]
     
     # Practice trials
     n_trials_per_condition = 1  # each condition is presented once during practice
@@ -688,6 +688,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     assert len(image_filenames) == 247, "Incorrect number of picture stimuli loaded."
     assert len(image_filenames) == (n_objects_per_trial + 1 / n_conditions) * (n_trials_practice + n_trials), "Incorrect number of trials."
+    assert np.all(np.array([len(x) for x in image_fn_list]) == n_objects_per_trial), "Incorrect number of stimuli for some trials."
     
     
     # --- Initialize components for Routine "instruct_1" ---
