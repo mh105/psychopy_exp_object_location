@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Fri Sep 27 11:11:11 2024
+    on Thu Oct 10 19:28:03 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -394,36 +394,72 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_instruct_intro_1',
         )
+    # create speaker 'read_instruct_intro_1'
+    deviceManager.addDevice(
+        deviceName='read_instruct_intro_1',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_instruct_intro_2') is None:
         # initialise key_instruct_intro_2
         key_instruct_intro_2 = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_instruct_intro_2',
         )
+    # create speaker 'read_instruct_intro_2'
+    deviceManager.addDevice(
+        deviceName='read_instruct_intro_2',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_instruct_condition') is None:
         # initialise key_instruct_condition
         key_instruct_condition = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_instruct_condition',
         )
+    # create speaker 'read_instruct_condition'
+    deviceManager.addDevice(
+        deviceName='read_instruct_condition',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_diagram_condition') is None:
         # initialise key_diagram_condition
         key_diagram_condition = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_diagram_condition',
         )
+    # create speaker 'read_instruct_response'
+    deviceManager.addDevice(
+        deviceName='read_instruct_response',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_instruct_review') is None:
         # initialise key_instruct_review
         key_instruct_review = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_instruct_review',
         )
+    # create speaker 'read_instruct_review'
+    deviceManager.addDevice(
+        deviceName='read_instruct_review',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_practice_repeat') is None:
         # initialise key_practice_repeat
         key_practice_repeat = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_practice_repeat',
         )
+    # create speaker 'read_practice_repeat'
+    deviceManager.addDevice(
+        deviceName='read_practice_repeat',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_response_test') is None:
         # initialise key_response_test
         key_response_test = deviceManager.addDevice(
@@ -436,12 +472,24 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_checkpoint',
         )
+    # create speaker 'read_checkpoint'
+    deviceManager.addDevice(
+        deviceName='read_checkpoint',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_instruct_begin') is None:
         # initialise key_instruct_begin
         key_instruct_begin = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_instruct_begin',
         )
+    # create speaker 'read_instruct_begin'
+    deviceManager.addDevice(
+        deviceName='read_instruct_begin',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     # create speaker 'read_thank_you'
     deviceManager.addDevice(
         deviceName='read_thank_you',
@@ -551,7 +599,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "_welcome" ---
     text_welcome = visual.TextStim(win=win, name='text_welcome',
-        text='Welcome! This task will take approximately 20 minutes.\n\nBefore we explain the task, we need to first calibrate the eyetracking camera. Please sit in a comfortable position with your head on the chin rest. Once we begin, it is important that you stay in the same position throughout this task.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press the spacebar',
+        text='Welcome! This task will take approximately 30 minutes.\n\nBefore we explain the task, we need to first calibrate the eyetracking camera. Please sit in a comfortable position with your head on the chin rest. Once we begin, it is important that you stay in the same position throughout this task.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press any of the white keys to begin',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -569,7 +617,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "_et_instruct" ---
     text_et = visual.TextStim(win=win, name='text_et',
-        text='During the calibration, you will see a target circle moving around the screen. Please try to track it with your eyes.\n\nMake sure to keep looking at the circle when it stops, and follow it when it moves. It is important that you keep your head on the chin rest once this part begins.\n\n\nPress the spacebar when you are ready, and our team will start the calibration for you',
+        text='During the calibration, you will see a target circle moving around the screen. Please try to track it with your eyes.\n\nMake sure to keep looking at the circle when it stops, and follow it when it moves. It is important that you keep your head on the chin rest once this part begins.\n\n\nPress any of the white keys when you are ready, and our team will start the calibration for you',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -604,7 +652,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=0.0);
     read_start = sound.Sound(
         'A', 
-        secs=1.6, 
+        secs=1.8, 
         stereo=True, 
         hamming=True, 
         speaker='read_start',    name='read_start'
@@ -693,23 +741,39 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_1" ---
     text_instruct_intro_1 = visual.TextStim(win=win, name='text_instruct_intro_1',
-        text='INSTRUCTIONS\n\nIn this experiment you will see a grid with 9 squares. 3 objects will appear one at a time at different locations within the grid. You will be asked to look at these objects, then after a short delay you will be tested on how well you can remember them.\n\n\nPress the spacebar to continue',
+        text='INSTRUCTIONS\n\nIn this experiment you will see a grid with 9 squares. 3 objects will appear one at a time at different locations within the grid. You will be asked to look at these objects, then after a short delay you will be tested on how well you can remember them.\n\n\nPress any of the white keys to continue',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_intro_1 = keyboard.Keyboard(deviceName='key_instruct_intro_1')
+    read_instruct_intro_1 = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_intro_1',    name='read_instruct_intro_1'
+    )
+    read_instruct_intro_1.setVolume(1.0)
     
     # --- Initialize components for Routine "instruct_2" ---
     text_instruct_intro_2 = visual.TextStim(win=win, name='text_instruct_intro_2',
-        text="INSTRUCTIONS\n\nThere will be three different types of trials for this experiment.\n\n1) 'Remember Object' trial. \n2) 'Remember Location' trial. \n3) 'Remember Object and Location' trial. \n\nWe will now explain each type of trial separately. You will see flowcharts of the different trial types, and afterwards you will have a chance to do some practice.\n\n\nPress the spacebar to continue",
+        text="INSTRUCTIONS\n\nThere will be three different types of trials for this experiment.\n\n1) 'Remember Object' trial. \n2) 'Remember Location' trial. \n3) 'Remember Object and Location' trial. \n\nWe will now explain each type of trial separately. You will see flowcharts of the different trial types, and afterwards you will have a chance to do some practice.\n\n\nPress any of the white keys to continue",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_intro_2 = keyboard.Keyboard(deviceName='key_instruct_intro_2')
+    read_instruct_intro_2 = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_intro_2',    name='read_instruct_intro_2'
+    )
+    read_instruct_intro_2.setVolume(1.0)
     
     # --- Initialize components for Routine "instruct_condition" ---
     text_instruct_condition = visual.TextStim(win=win, name='text_instruct_condition',
@@ -720,6 +784,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-1.0);
     key_instruct_condition = keyboard.Keyboard(deviceName='key_instruct_condition')
+    read_instruct_condition = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_condition',    name='read_instruct_condition'
+    )
+    read_instruct_condition.setVolume(1.0)
     
     # --- Initialize components for Routine "diagram_condition" ---
     text_response = visual.TextStim(win=win, name='text_response',
@@ -738,33 +810,57 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=False, depth=-2.0)
     text_continue = visual.TextStim(win=win, name='text_continue',
-        text='Press the spacebar to continue',
+        text='Press any of the white keys to continue',
         font='Arial',
         units='norm', pos=(0, -0.85), draggable=False, height=0.08, wrapWidth=1.8, ori=0.0, 
         color='black', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-3.0);
     key_diagram_condition = keyboard.Keyboard(deviceName='key_diagram_condition')
+    read_instruct_response = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_response',    name='read_instruct_response'
+    )
+    read_instruct_response.setVolume(1.0)
     
     # --- Initialize components for Routine "instruct_review" ---
     text_instruct_review = visual.TextStim(win=win, name='text_instruct_review',
-        text="REVIEW\n\nThere are 3 types of trials in this experiment:\n'Remember Object'\n'Remember Location'\n'Remember Object and Location'.\n\nNote that these 3 types of trials will be intermixed throughout the experiment. This means that you will not know whether you need to respond to the Object or the Location or both until you see the prompt screen. During the delay, try to keep looking at the center of the screen. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        text="REVIEW\n\nThere are 3 types of trials in this experiment:\n'Remember Object'\n'Remember Location'\n'Remember Object and Location'.\n\nNote that these 3 types of trials will be intermixed throughout the experiment. This means that you will not know whether you need to respond to the Object or the Location or both until you see the prompt screen. During the delay, try to keep looking at the center of the screen. Please respond as quickly and accurately as possible.\n\n\nPress the green key to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_review = keyboard.Keyboard(deviceName='key_instruct_review')
+    read_instruct_review = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_review',    name='read_instruct_review'
+    )
+    read_instruct_review.setVolume(1.0)
     
     # --- Initialize components for Routine "instruct_practice_repeat" ---
     test_practice_repeat = visual.TextStim(win=win, name='test_practice_repeat',
-        text="We will repeat the practice trials one more time.\n\nRemember: There are 3 types of trials in this experiment: 'Remember Object', 'Remember Location', and 'Remember Object and Location'.\n\nPress the 'Y' key to indicate that YES you recognize the object, location, or object in the same location depending on the type of trial, and press the 'N' key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        text="We will repeat the practice trials one more time.\n\nRemember: There are 3 types of trials in this experiment: 'Remember Object', 'Remember Location', and 'Remember Object and Location'.\n\nPress the Green key to indicate that you recognize the object, location, or object in the same location depending on the type of trial, and press the Red key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the green key to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_practice_repeat = keyboard.Keyboard(deviceName='key_practice_repeat')
+    read_practice_repeat = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_practice_repeat',    name='read_practice_repeat'
+    )
+    read_practice_repeat.setVolume(1.0)
     
     # --- Initialize components for Routine "practice_setup" ---
     
@@ -884,13 +980,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         image_object.size *= max_size / max(image_object.size)  # scale to max size
         image_object._requestedSize = None  # reset for next image original size
     
-    text_debug_only = visual.TextStim(win=win, name='text_debug_only',
-        text='',
-        font='Arial',
-        units='norm', pos=(0, 0.9), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-18.0);
     
     # --- Initialize components for Routine "practice_feedback" ---
     background_feedback = visual.Rect(
@@ -917,16 +1006,32 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=0.0);
     key_checkpoint = keyboard.Keyboard(deviceName='key_checkpoint')
+    read_checkpoint = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_checkpoint',    name='read_checkpoint'
+    )
+    read_checkpoint.setVolume(1.0)
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_instruct_begin = visual.TextStim(win=win, name='text_instruct_begin',
-        text="Great job! We will now begin the experiment.\n\nAs a reminder, the trials will ask you to remember the object, the location, or the object and its location. Please keep looking at the center of the screen during the delay.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object, location, or the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\nYou will no longer receive feedback on your responses.\n\n\nPress the spacebar to start",
+        text='Great job! We will now begin the experiment.\n\nAs a reminder, the trials will ask you to remember the object, the location, or the object and its location. Please keep looking at the center of the screen during the delay.\n\nPress the Green and Red keys accordingly depending on whether you think the object, location, or the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\nNote that you will no longer receive feedback on your responses.\n\n\nPress the green key to start the trials',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_begin = keyboard.Keyboard(deviceName='key_instruct_begin')
+    read_instruct_begin = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_begin',    name='read_instruct_begin'
+    )
+    read_instruct_begin.setVolume(1.0)
     
     # --- Initialize components for Routine "trial_setup" ---
     
@@ -1046,13 +1151,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         image_object.size *= max_size / max(image_object.size)  # scale to max size
         image_object._requestedSize = None  # reset for next image original size
     
-    text_debug_only = visual.TextStim(win=win, name='text_debug_only',
-        text='',
-        font='Arial',
-        units='norm', pos=(0, 0.9), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-18.0);
     
     # --- Initialize components for Routine "__end__" ---
     text_thank_you = visual.TextStim(win=win, name='text_thank_you',
@@ -1179,7 +1277,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_welcome.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_welcome.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_welcome.status == STARTED and not waitOnFlip:
-            theseKeys = key_welcome.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_welcome.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_welcome_allKeys.extend(theseKeys)
             if len(_key_welcome_allKeys):
                 key_welcome.keys = _key_welcome_allKeys[-1].name  # just the last key pressed
@@ -1334,7 +1432,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_et.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_et.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_et.status == STARTED and not waitOnFlip:
-            theseKeys = key_et.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_et.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_et_allKeys.extend(theseKeys)
             if len(_key_et_allKeys):
                 key_et.keys = _key_et_allKeys[-1].name  # just the last key pressed
@@ -1555,7 +1653,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     __start__.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
-    read_start.setSound('resource/ready_to_begin.wav', secs=1.6, hamming=True)
+    read_start.setSound('resource/ready_to_begin.wav', secs=1.8, hamming=True)
     read_start.setVolume(1.0, log=False)
     read_start.seek(0)
     # store start times for __start__
@@ -1632,7 +1730,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # if read_start is stopping this frame...
         if read_start.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > read_start.tStartRefresh + 1.6-frameTolerance or read_start.isFinished:
+            if tThisFlipGlobal > read_start.tStartRefresh + 1.8-frameTolerance or read_start.isFinished:
                 # keep track of stop time/frame for later
                 read_start.tStop = t  # not accounting for scr refresh
                 read_start.tStopRefresh = tThisFlipGlobal  # on global time
@@ -1713,7 +1811,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_1
     instruct_1 = data.Routine(
         name='instruct_1',
-        components=[text_instruct_intro_1, key_instruct_intro_1],
+        components=[text_instruct_intro_1, key_instruct_intro_1, read_instruct_intro_1],
     )
     instruct_1.status = NOT_STARTED
     continueRoutine = True
@@ -1722,6 +1820,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_intro_1.keys = []
     key_instruct_intro_1.rt = []
     _key_instruct_intro_1_allKeys = []
+    read_instruct_intro_1.setSound('resource/instruct_1.wav', hamming=True)
+    read_instruct_intro_1.setVolume(1.0, log=False)
+    read_instruct_intro_1.seek(0)
     # store start times for instruct_1
     instruct_1.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_1.tStart = globalClock.getTime(format='float')
@@ -1786,7 +1887,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_intro_1.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_intro_1.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_intro_1.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_intro_1.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_intro_1.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_intro_1_allKeys.extend(theseKeys)
             if len(_key_instruct_intro_1_allKeys):
                 key_instruct_intro_1.keys = _key_instruct_intro_1_allKeys[-1].name  # just the last key pressed
@@ -1794,6 +1895,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_intro_1.duration = _key_instruct_intro_1_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_intro_1* updates
+        
+        # if read_instruct_intro_1 is starting this frame...
+        if read_instruct_intro_1.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_intro_1.frameNStart = frameN  # exact frame index
+            read_instruct_intro_1.tStart = t  # local t and not account for scr refresh
+            read_instruct_intro_1.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_intro_1.status = STARTED
+            read_instruct_intro_1.play(when=win)  # sync with win flip
+        
+        # if read_instruct_intro_1 is stopping this frame...
+        if read_instruct_intro_1.status == STARTED:
+            if bool(False) or read_instruct_intro_1.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_intro_1.tStop = t  # not accounting for scr refresh
+                read_instruct_intro_1.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_intro_1.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_intro_1.status = FINISHED
+                read_instruct_intro_1.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1807,7 +1931,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_intro_1]
             )
             # skip the frame we paused on
             continue
@@ -1833,6 +1957,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_1
     instruct_1.tStop = globalClock.getTime(format='float')
     instruct_1.tStopRefresh = tThisFlipGlobal
+    read_instruct_intro_1.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_1" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1841,7 +1966,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_2
     instruct_2 = data.Routine(
         name='instruct_2',
-        components=[text_instruct_intro_2, key_instruct_intro_2],
+        components=[text_instruct_intro_2, key_instruct_intro_2, read_instruct_intro_2],
     )
     instruct_2.status = NOT_STARTED
     continueRoutine = True
@@ -1850,6 +1975,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_intro_2.keys = []
     key_instruct_intro_2.rt = []
     _key_instruct_intro_2_allKeys = []
+    read_instruct_intro_2.setSound('resource/instruct_2.wav', hamming=True)
+    read_instruct_intro_2.setVolume(1.0, log=False)
+    read_instruct_intro_2.seek(0)
     # store start times for instruct_2
     instruct_2.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_2.tStart = globalClock.getTime(format='float')
@@ -1914,7 +2042,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_intro_2.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_intro_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_intro_2.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_intro_2.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_intro_2.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_intro_2_allKeys.extend(theseKeys)
             if len(_key_instruct_intro_2_allKeys):
                 key_instruct_intro_2.keys = _key_instruct_intro_2_allKeys[-1].name  # just the last key pressed
@@ -1922,6 +2050,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_intro_2.duration = _key_instruct_intro_2_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_intro_2* updates
+        
+        # if read_instruct_intro_2 is starting this frame...
+        if read_instruct_intro_2.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_intro_2.frameNStart = frameN  # exact frame index
+            read_instruct_intro_2.tStart = t  # local t and not account for scr refresh
+            read_instruct_intro_2.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_intro_2.status = STARTED
+            read_instruct_intro_2.play(when=win)  # sync with win flip
+        
+        # if read_instruct_intro_2 is stopping this frame...
+        if read_instruct_intro_2.status == STARTED:
+            if bool(False) or read_instruct_intro_2.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_intro_2.tStop = t  # not accounting for scr refresh
+                read_instruct_intro_2.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_intro_2.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_intro_2.status = FINISHED
+                read_instruct_intro_2.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1935,7 +2086,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_intro_2]
             )
             # skip the frame we paused on
             continue
@@ -1961,6 +2112,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_2
     instruct_2.tStop = globalClock.getTime(format='float')
     instruct_2.tStopRefresh = tThisFlipGlobal
+    read_instruct_intro_2.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1994,74 +2146,86 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine instruct_condition
         instruct_condition = data.Routine(
             name='instruct_condition',
-            components=[text_instruct_condition, key_instruct_condition],
+            components=[text_instruct_condition, key_instruct_condition, read_instruct_condition],
         )
         instruct_condition.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
         # Run 'Begin Routine' code from set_instruct_content
-        if instruct_loop.thisRepN == 0:  # Remember Object Condition
+        # Remember Object Condition
+        if instruct_loop.thisRepN == 0:
             instruct_condition_text = "Remember Object trial: In this type of trial you need to remember the identity of the objects shown to you.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8-second delay. "
-            instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Object'. "
+            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8-second delay."
+            instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Object'."
             instruct_condition_text += "This prompt screen will be followed by a test object in the center of the grid.\n"
             instruct_condition_text += "\n"
             instruct_condition_text += "'Remember Object' tells you that you need to decide whether this test object was one of the 3 objects just shown to you.\n"
             instruct_condition_text += "\n\n"
-            instruct_condition_text += "Press the spacebar to continue"
+            instruct_condition_text += "Press any of the white keys to continue"
         
+            instruct_condition_audio_filename = "resource/instruct_condition_object.wav"
+            instruct_response_audio_filename = "resource/instruct_response_object.wav"
             instruct_diagram_filename = "resource/object_trial_diagram.tif"
-            
+        
             instruct_response_text = "Remember Object Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If you recognize the test object, press the 'Y' key to indicate that YES, the test object was in the 3-object sequence.\n"
+            instruct_response_text += "If you recognize the test object, press the Green key to indicate that YES, the test object was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If you do NOT recognize the test object, press the 'N' key to indicate that NO, the test object was NOT in the 3-object sequence."
-            
-        elif instruct_loop.thisRepN == 1:  # Remember Location Condition
+            instruct_response_text += "If you do NOT recognize the test object, press the Red key to indicate that NO, the test object was NOT in the 3-object sequence."
+        
+        # Remember Location Condition
+        elif instruct_loop.thisRepN == 1:
             instruct_condition_text = "Remember Location trial: In this type of trial you need to remember the location of the objects shown to you.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8-second delay. "
-            instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Location'. "
+            instruct_condition_text += "You will see 3 objects appearing one at a time followed by an 8-second delay."
+            instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Location'."
             instruct_condition_text += "This prompt screen will be followed by a dot in one of the squares of the grid.\n"
             instruct_condition_text += "\n"
             instruct_condition_text += "'Remember Location' tells you that you need to decide whether this square was previously occupied by any object in the 3-object sequence.\n"
             instruct_condition_text += "\n\n"
-            instruct_condition_text += "Press the spacebar to continue"
+            instruct_condition_text += "Press any of the white keys to continue"
         
+            instruct_condition_audio_filename = "resource/instruct_condition_location.wav"
+            instruct_response_audio_filename = "resource/instruct_response_location.wav"
             instruct_diagram_filename = "resource/location_trial_diagram.tif"
         
             instruct_response_text = "Remember Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the square indicated by the dot was previously occupied, press the 'Y' key to indicate that YES, one of the objects in the 3-object sequence was in this square.\n"
+            instruct_response_text += "If the square indicated by the dot was previously occupied, press the Green key to indicate that YES, one of the objects in the 3-object sequence was in this square.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the square indicated by the dot was NOT previously occupied, press the 'N' key to indicate that NO, none of the objects in the 3-object sequence were in this square."
+            instruct_response_text += "If the square indicated by the dot was NOT previously occupied, press the Red key to indicate that NO, none of the objects in the 3-object sequence were in this square."    
         
-        elif instruct_loop.thisRepN == 2:  # Remember Object and Location Condition
+        # Remember Object and Location Condition
+        elif instruct_loop.thisRepN == 2:
             instruct_condition_text = "Remember Object and Location trial: In this type of trial you need to remember both the identity of the objects and their locations.\n"
             instruct_condition_text += "\n"
-            instruct_condition_text += "As with the other trials, you will see 3 objects appearing one at a time followed by an 8-second delay. "
-            instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Object and Location'. "
+            instruct_condition_text += "As with the other trials, you will see 3 objects appearing one at a time followed by an 8-second delay."
+            instruct_condition_text += "You will then be shown a prompt screen saying 'Remember Object and Location'."
             instruct_condition_text += "This prompt screen will be followed by a test object in one of the squares of the grid.\n"
             instruct_condition_text += "\n"
             instruct_condition_text += "'Remember Object and Location' tells you that you need to decide whether this object is in the same location. In other words, whether the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_condition_text += "\n\n"
-            instruct_condition_text += "Press the spacebar to continue"
-            
+            instruct_condition_text += "Press any of the white keys to continue"
+        
+            instruct_condition_audio_filename = "resource/instruct_condition_object_and_location.wav"
+            instruct_response_audio_filename = "resource/instruct_response_object_and_location.wav"
             instruct_diagram_filename = "resource/object_location_trial_diagram.tif"
-            
+        
             instruct_response_text = "Remember Object and Location Trial:\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is in the same location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n"
+            instruct_response_text += "If the test object is in the same location, press the Green key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n"
             instruct_response_text += "\n"
-            instruct_response_text += "If the test object is NOT in the same location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence."
+            instruct_response_text += "If the test object is NOT in the same location, press the Red key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence."
         
         text_instruct_condition.setText(instruct_condition_text)
         # create starting attributes for key_instruct_condition
         key_instruct_condition.keys = []
         key_instruct_condition.rt = []
         _key_instruct_condition_allKeys = []
+        read_instruct_condition.setSound(instruct_condition_audio_filename, hamming=True)
+        read_instruct_condition.setVolume(1.0, log=False)
+        read_instruct_condition.seek(0)
         # store start times for instruct_condition
         instruct_condition.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         instruct_condition.tStart = globalClock.getTime(format='float')
@@ -2129,7 +2293,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 win.callOnFlip(key_instruct_condition.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(key_instruct_condition.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if key_instruct_condition.status == STARTED and not waitOnFlip:
-                theseKeys = key_instruct_condition.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+                theseKeys = key_instruct_condition.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
                 _key_instruct_condition_allKeys.extend(theseKeys)
                 if len(_key_instruct_condition_allKeys):
                     key_instruct_condition.keys = _key_instruct_condition_allKeys[-1].name  # just the last key pressed
@@ -2137,6 +2301,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_instruct_condition.duration = _key_instruct_condition_allKeys[-1].duration
                     # a response ends the routine
                     continueRoutine = False
+            
+            # *read_instruct_condition* updates
+            
+            # if read_instruct_condition is starting this frame...
+            if read_instruct_condition.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+                # keep track of start time/frame for later
+                read_instruct_condition.frameNStart = frameN  # exact frame index
+                read_instruct_condition.tStart = t  # local t and not account for scr refresh
+                read_instruct_condition.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                read_instruct_condition.status = STARTED
+                read_instruct_condition.play(when=win)  # sync with win flip
+            
+            # if read_instruct_condition is stopping this frame...
+            if read_instruct_condition.status == STARTED:
+                if bool(False) or read_instruct_condition.isFinished:
+                    # keep track of stop time/frame for later
+                    read_instruct_condition.tStop = t  # not accounting for scr refresh
+                    read_instruct_condition.tStopRefresh = tThisFlipGlobal  # on global time
+                    read_instruct_condition.frameNStop = frameN  # exact frame index
+                    # update status
+                    read_instruct_condition.status = FINISHED
+                    read_instruct_condition.stop()
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2150,7 +2337,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     thisExp=thisExp, 
                     win=win, 
                     timers=[routineTimer], 
-                    playbackComponents=[]
+                    playbackComponents=[read_instruct_condition]
                 )
                 # skip the frame we paused on
                 continue
@@ -2176,6 +2363,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # store stop times for instruct_condition
         instruct_condition.tStop = globalClock.getTime(format='float')
         instruct_condition.tStopRefresh = tThisFlipGlobal
+        read_instruct_condition.pause()  # ensure sound has stopped at end of Routine
         # the Routine "instruct_condition" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -2183,7 +2371,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine diagram_condition
         diagram_condition = data.Routine(
             name='diagram_condition',
-            components=[text_response, image_diagram, text_continue, key_diagram_condition],
+            components=[text_response, image_diagram, text_continue, key_diagram_condition, read_instruct_response],
         )
         diagram_condition.status = NOT_STARTED
         continueRoutine = True
@@ -2197,6 +2385,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         key_diagram_condition.keys = []
         key_diagram_condition.rt = []
         _key_diagram_condition_allKeys = []
+        read_instruct_response.setSound(instruct_response_audio_filename, hamming=True)
+        read_instruct_response.setVolume(1.0, log=False)
+        read_instruct_response.seek(0)
         # store start times for diagram_condition
         diagram_condition.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         diagram_condition.tStart = globalClock.getTime(format='float')
@@ -2300,7 +2491,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 win.callOnFlip(key_diagram_condition.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(key_diagram_condition.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if key_diagram_condition.status == STARTED and not waitOnFlip:
-                theseKeys = key_diagram_condition.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+                theseKeys = key_diagram_condition.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
                 _key_diagram_condition_allKeys.extend(theseKeys)
                 if len(_key_diagram_condition_allKeys):
                     key_diagram_condition.keys = _key_diagram_condition_allKeys[-1].name  # just the last key pressed
@@ -2308,6 +2499,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_diagram_condition.duration = _key_diagram_condition_allKeys[-1].duration
                     # a response ends the routine
                     continueRoutine = False
+            
+            # *read_instruct_response* updates
+            
+            # if read_instruct_response is starting this frame...
+            if read_instruct_response.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+                # keep track of start time/frame for later
+                read_instruct_response.frameNStart = frameN  # exact frame index
+                read_instruct_response.tStart = t  # local t and not account for scr refresh
+                read_instruct_response.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                read_instruct_response.status = STARTED
+                read_instruct_response.play(when=win)  # sync with win flip
+            
+            # if read_instruct_response is stopping this frame...
+            if read_instruct_response.status == STARTED:
+                if bool(False) or read_instruct_response.isFinished:
+                    # keep track of stop time/frame for later
+                    read_instruct_response.tStop = t  # not accounting for scr refresh
+                    read_instruct_response.tStopRefresh = tThisFlipGlobal  # on global time
+                    read_instruct_response.frameNStop = frameN  # exact frame index
+                    # update status
+                    read_instruct_response.status = FINISHED
+                    read_instruct_response.stop()
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2321,7 +2535,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     thisExp=thisExp, 
                     win=win, 
                     timers=[routineTimer], 
-                    playbackComponents=[]
+                    playbackComponents=[read_instruct_response]
                 )
                 # skip the frame we paused on
                 continue
@@ -2347,6 +2561,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # store stop times for diagram_condition
         diagram_condition.tStop = globalClock.getTime(format='float')
         diagram_condition.tStopRefresh = tThisFlipGlobal
+        read_instruct_response.pause()  # ensure sound has stopped at end of Routine
         # the Routine "diagram_condition" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
     # completed 3.0 repeats of 'instruct_loop'
@@ -2356,7 +2571,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_review
     instruct_review = data.Routine(
         name='instruct_review',
-        components=[text_instruct_review, key_instruct_review],
+        components=[text_instruct_review, key_instruct_review, read_instruct_review],
     )
     instruct_review.status = NOT_STARTED
     continueRoutine = True
@@ -2365,6 +2580,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_review.keys = []
     key_instruct_review.rt = []
     _key_instruct_review_allKeys = []
+    read_instruct_review.setSound('resource/instruct_review.wav', hamming=True)
+    read_instruct_review.setVolume(1.0, log=False)
+    read_instruct_review.seek(0)
     # store start times for instruct_review
     instruct_review.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_review.tStart = globalClock.getTime(format='float')
@@ -2429,7 +2647,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_review.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_review.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_review.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_review.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_review.getKeys(keyList=['1'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_review_allKeys.extend(theseKeys)
             if len(_key_instruct_review_allKeys):
                 key_instruct_review.keys = _key_instruct_review_allKeys[-1].name  # just the last key pressed
@@ -2437,6 +2655,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_review.duration = _key_instruct_review_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_review* updates
+        
+        # if read_instruct_review is starting this frame...
+        if read_instruct_review.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_review.frameNStart = frameN  # exact frame index
+            read_instruct_review.tStart = t  # local t and not account for scr refresh
+            read_instruct_review.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_review.status = STARTED
+            read_instruct_review.play(when=win)  # sync with win flip
+        
+        # if read_instruct_review is stopping this frame...
+        if read_instruct_review.status == STARTED:
+            if bool(False) or read_instruct_review.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_review.tStop = t  # not accounting for scr refresh
+                read_instruct_review.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_review.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_review.status = FINISHED
+                read_instruct_review.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2450,7 +2691,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_review]
             )
             # skip the frame we paused on
             continue
@@ -2476,6 +2717,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_review
     instruct_review.tStop = globalClock.getTime(format='float')
     instruct_review.tStopRefresh = tThisFlipGlobal
+    read_instruct_review.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_review" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2509,7 +2751,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine instruct_practice_repeat
         instruct_practice_repeat = data.Routine(
             name='instruct_practice_repeat',
-            components=[test_practice_repeat, key_practice_repeat],
+            components=[test_practice_repeat, key_practice_repeat, read_practice_repeat],
         )
         instruct_practice_repeat.status = NOT_STARTED
         continueRoutine = True
@@ -2518,6 +2760,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         key_practice_repeat.keys = []
         key_practice_repeat.rt = []
         _key_practice_repeat_allKeys = []
+        read_practice_repeat.setSound('resource/instruct_practice_repeat.wav', hamming=True)
+        read_practice_repeat.setVolume(1.0, log=False)
+        read_practice_repeat.seek(0)
         # Run 'Begin Routine' code from skip_routine_check
         # Start a practice block
         dev.activate_line(bitmask=block_start_code)
@@ -2595,7 +2840,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 win.callOnFlip(key_practice_repeat.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(key_practice_repeat.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if key_practice_repeat.status == STARTED and not waitOnFlip:
-                theseKeys = key_practice_repeat.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+                theseKeys = key_practice_repeat.getKeys(keyList=['1'], ignoreKeys=["escape"], waitRelease=True)
                 _key_practice_repeat_allKeys.extend(theseKeys)
                 if len(_key_practice_repeat_allKeys):
                     key_practice_repeat.keys = _key_practice_repeat_allKeys[-1].name  # just the last key pressed
@@ -2603,6 +2848,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_practice_repeat.duration = _key_practice_repeat_allKeys[-1].duration
                     # a response ends the routine
                     continueRoutine = False
+            
+            # *read_practice_repeat* updates
+            
+            # if read_practice_repeat is starting this frame...
+            if read_practice_repeat.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+                # keep track of start time/frame for later
+                read_practice_repeat.frameNStart = frameN  # exact frame index
+                read_practice_repeat.tStart = t  # local t and not account for scr refresh
+                read_practice_repeat.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                read_practice_repeat.status = STARTED
+                read_practice_repeat.play(when=win)  # sync with win flip
+            
+            # if read_practice_repeat is stopping this frame...
+            if read_practice_repeat.status == STARTED:
+                if bool(False) or read_practice_repeat.isFinished:
+                    # keep track of stop time/frame for later
+                    read_practice_repeat.tStop = t  # not accounting for scr refresh
+                    read_practice_repeat.tStopRefresh = tThisFlipGlobal  # on global time
+                    read_practice_repeat.frameNStop = frameN  # exact frame index
+                    # update status
+                    read_practice_repeat.status = FINISHED
+                    read_practice_repeat.stop()
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2616,7 +2884,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     thisExp=thisExp, 
                     win=win, 
                     timers=[routineTimer], 
-                    playbackComponents=[]
+                    playbackComponents=[read_practice_repeat]
                 )
                 # skip the frame we paused on
                 continue
@@ -2642,6 +2910,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # store stop times for instruct_practice_repeat
         instruct_practice_repeat.tStop = globalClock.getTime(format='float')
         instruct_practice_repeat.tStopRefresh = tThisFlipGlobal
+        read_practice_repeat.pause()  # ensure sound has stopped at end of Routine
         # the Routine "instruct_practice_repeat" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -2696,32 +2965,32 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 test_prompt = "Remember Object"
                 image_test_fn = rng.choice(image_fn)  # one of three study objects
                 image_test_loc = [0, 0]  # image location: center
-                correct_resp = 'y'
+                correct_resp = '1'
                 
             elif trial_type == 'objdifferent':
                 test_prompt = "Remember Object"
                 image_test_fn = image_fn_novel_practice  # the novel object for practice
                 image_test_loc = [0, 0]  # image location: center
-                correct_resp = 'n'
+                correct_resp = '2'
                 
             elif trial_type == 'locsame':
                 test_prompt = "Remember Location"
                 image_test_fn = image_dot_fn  # show dot image
                 image_test_loc = rng.choice(image_loc[:3])  # one of shown locations
-                correct_resp = 'y'
+                correct_resp = '1'
                 
             elif trial_type == 'locdifferent':
                 test_prompt = "Remember Location"
                 image_test_fn = image_dot_fn  # show dot image
                 image_test_loc = image_loc[3]  # a novel location that wasn't shown
-                correct_resp = 'n'
+                correct_resp = '2'
             
             elif trial_type == 'objlocsame':
                 test_prompt = "Remember Object and Location"
                 i = rng.choice([0, 1, 2])  # select one of the three study objects
                 image_test_fn = image_fn[i]  # show the selected object
                 image_test_loc = image_loc[i]  # and its corresponding location
-                correct_resp = 'y'
+                correct_resp = '1'
                 
             elif trial_type == 'objlocdifferent':
                 test_prompt = "Remember Object and Location"
@@ -2730,7 +2999,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 _ = index.pop(i)  # remove the selected index from the list
                 image_test_fn = image_fn[i]  # show the selected object
                 image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations
-                correct_resp = 'n'
+                correct_resp = '2'
             
             # store start times for practice_setup
             practice_setup.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
@@ -2824,7 +3093,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[background, grid_outer, grid_horizontal, grid_vertical, grid_center, image_1, image_2, image_3, text_fixation, text_prompt, grid_outer_test, grid_horizontal_test, grid_vertical_test, grid_center_test, image_test, key_response_test, text_debug_only],
+                components=[background, grid_outer, grid_horizontal, grid_vertical, grid_center, image_1, image_2, image_3, text_fixation, text_prompt, grid_outer_test, grid_horizontal_test, grid_vertical_test, grid_center_test, image_test, key_response_test],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
@@ -2859,7 +3128,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             prompt_trigger_started = False
             test_trigger_started = False
             
-            text_debug_only.setText(trial_type)
             # store start times for trial
             trial.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             trial.tStart = globalClock.getTime(format='float')
@@ -3436,7 +3704,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         key_response_test.status = FINISHED
                         key_response_test.status = FINISHED
                 if key_response_test.status == STARTED and not waitOnFlip:
-                    theseKeys = key_response_test.getKeys(keyList=['y', 'n'], ignoreKeys=["escape"], waitRelease=False)
+                    theseKeys = key_response_test.getKeys(keyList=['1', '2'], ignoreKeys=["escape"], waitRelease=False)
                     _key_response_test_allKeys.extend(theseKeys)
                     if len(_key_response_test_allKeys):
                         key_response_test.keys = _key_response_test_allKeys[-1].name  # just the last key pressed
@@ -3485,40 +3753,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     win.callOnFlip(eyetracker.sendMessage, test_start_code)
                     test_trigger_started = True
                 
-                
-                # *text_debug_only* updates
-                
-                # if text_debug_only is starting this frame...
-                if text_debug_only.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    text_debug_only.frameNStart = frameN  # exact frame index
-                    text_debug_only.tStart = t  # local t and not account for scr refresh
-                    text_debug_only.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(text_debug_only, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'text_debug_only.started')
-                    # update status
-                    text_debug_only.status = STARTED
-                    text_debug_only.setAutoDraw(True)
-                
-                # if text_debug_only is active this frame...
-                if text_debug_only.status == STARTED:
-                    # update params
-                    pass
-                
-                # if text_debug_only is stopping this frame...
-                if text_debug_only.status == STARTED:
-                    # is it time to stop? (based on local clock)
-                    if tThisFlip > 19.15-frameTolerance:
-                        # keep track of stop time/frame for later
-                        text_debug_only.tStop = t  # not accounting for scr refresh
-                        text_debug_only.tStopRefresh = tThisFlipGlobal  # on global time
-                        text_debug_only.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'text_debug_only.stopped')
-                        # update status
-                        text_debug_only.status = FINISHED
-                        text_debug_only.setAutoDraw(False)
                 
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -3755,7 +3989,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine practice_checkpoint
         practice_checkpoint = data.Routine(
             name='practice_checkpoint',
-            components=[text_checkpoint, key_checkpoint],
+            components=[text_checkpoint, key_checkpoint, read_checkpoint],
         )
         practice_checkpoint.status = NOT_STARTED
         continueRoutine = True
@@ -3764,6 +3998,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         key_checkpoint.keys = []
         key_checkpoint.rt = []
         _key_checkpoint_allKeys = []
+        read_checkpoint.setSound('resource/instruct_checkpoint.wav', hamming=True)
+        read_checkpoint.setVolume(1.0, log=False)
+        read_checkpoint.seek(0)
         # Run 'Begin Routine' code from code_checkpoint
         # End of practice block
         dev.activate_line(bitmask=block_end_code)
@@ -3846,6 +4083,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     # a response ends the routine
                     continueRoutine = False
             
+            # *read_checkpoint* updates
+            
+            # if read_checkpoint is starting this frame...
+            if read_checkpoint.status == NOT_STARTED and tThisFlip >= 0.4-frameTolerance:
+                # keep track of start time/frame for later
+                read_checkpoint.frameNStart = frameN  # exact frame index
+                read_checkpoint.tStart = t  # local t and not account for scr refresh
+                read_checkpoint.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                read_checkpoint.status = STARTED
+                read_checkpoint.play(when=win)  # sync with win flip
+            
+            # if read_checkpoint is stopping this frame...
+            if read_checkpoint.status == STARTED:
+                if bool(False) or read_checkpoint.isFinished:
+                    # keep track of stop time/frame for later
+                    read_checkpoint.tStop = t  # not accounting for scr refresh
+                    read_checkpoint.tStopRefresh = tThisFlipGlobal  # on global time
+                    read_checkpoint.frameNStop = frameN  # exact frame index
+                    # update status
+                    read_checkpoint.status = FINISHED
+                    read_checkpoint.stop()
+            
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
                 thisExp.status = FINISHED
@@ -3858,7 +4118,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     thisExp=thisExp, 
                     win=win, 
                     timers=[routineTimer], 
-                    playbackComponents=[]
+                    playbackComponents=[read_checkpoint]
                 )
                 # skip the frame we paused on
                 continue
@@ -3884,6 +4144,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # store stop times for practice_checkpoint
         practice_checkpoint.tStop = globalClock.getTime(format='float')
         practice_checkpoint.tStopRefresh = tThisFlipGlobal
+        read_checkpoint.pause()  # ensure sound has stopped at end of Routine
         # Run 'End Routine' code from code_checkpoint
         if key_checkpoint.keys == 'o':  # proceed to main experiment
             practice_loop.finished = True
@@ -3897,7 +4158,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_begin
     instruct_begin = data.Routine(
         name='instruct_begin',
-        components=[text_instruct_begin, key_instruct_begin],
+        components=[text_instruct_begin, key_instruct_begin, read_instruct_begin],
     )
     instruct_begin.status = NOT_STARTED
     continueRoutine = True
@@ -3906,6 +4167,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_begin.keys = []
     key_instruct_begin.rt = []
     _key_instruct_begin_allKeys = []
+    read_instruct_begin.setSound('resource/instruct_begin.wav', hamming=True)
+    read_instruct_begin.setVolume(1.0, log=False)
+    read_instruct_begin.seek(0)
     # Run 'Begin Routine' code from trigger_trial_block
     # Beginning of main experiment trial block
     dev.activate_line(bitmask=block_start_code)
@@ -3976,7 +4240,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_begin.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_begin.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_begin.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_begin.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_begin.getKeys(keyList=['1'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_begin_allKeys.extend(theseKeys)
             if len(_key_instruct_begin_allKeys):
                 key_instruct_begin.keys = _key_instruct_begin_allKeys[-1].name  # just the last key pressed
@@ -3984,6 +4248,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_begin.duration = _key_instruct_begin_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_begin* updates
+        
+        # if read_instruct_begin is starting this frame...
+        if read_instruct_begin.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_begin.frameNStart = frameN  # exact frame index
+            read_instruct_begin.tStart = t  # local t and not account for scr refresh
+            read_instruct_begin.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_begin.status = STARTED
+            read_instruct_begin.play(when=win)  # sync with win flip
+        
+        # if read_instruct_begin is stopping this frame...
+        if read_instruct_begin.status == STARTED:
+            if bool(False) or read_instruct_begin.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_begin.tStop = t  # not accounting for scr refresh
+                read_instruct_begin.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_begin.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_begin.status = FINISHED
+                read_instruct_begin.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -3997,7 +4284,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_begin]
             )
             # skip the frame we paused on
             continue
@@ -4023,6 +4310,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_begin
     instruct_begin.tStop = globalClock.getTime(format='float')
     instruct_begin.tStopRefresh = tThisFlipGlobal
+    read_instruct_begin.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_begin" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -4078,32 +4366,32 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             test_prompt = "Remember Object"
             image_test_fn = rng.choice(image_fn)  # one of three study objects
             image_test_loc = [0, 0]  # image location: center
-            correct_resp = 'y'
+            correct_resp = '1'
             
         elif trial_type == 'objdifferent':
             test_prompt = "Remember Object"
             image_test_fn = image_fn_novel_list.pop()  # get a new novel object
             image_test_loc = [0, 0]  # image location: center
-            correct_resp = 'n'
+            correct_resp = '2'
             
         elif trial_type == 'locsame':
             test_prompt = "Remember Location"
             image_test_fn = image_dot_fn  # show dot image
             image_test_loc = rng.choice(image_loc[:3])  # one of shown locations
-            correct_resp = 'y'
+            correct_resp = '1'
             
         elif trial_type == 'locdifferent':
             test_prompt = "Remember Location"
             image_test_fn = image_dot_fn  # show dot image
             image_test_loc = image_loc[3]  # a novel location that wasn't shown
-            correct_resp = 'n'
+            correct_resp = '2'
         
         elif trial_type == 'objlocsame':
             test_prompt = "Remember Object and Location"
             i = rng.choice([0, 1, 2])  # select one of the three study objects
             image_test_fn = image_fn[i]  # show the selected object
             image_test_loc = image_loc[i]  # and its corresponding location
-            correct_resp = 'y'
+            correct_resp = '1'
             
         elif trial_type == 'objlocdifferent':
             test_prompt = "Remember Object and Location"
@@ -4112,7 +4400,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             _ = index.pop(i)  # remove the selected index from the list
             image_test_fn = image_fn[i]  # show the selected object
             image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations
-            correct_resp = 'n'
+            correct_resp = '2'
         
         # store start times for trial_setup
         trial_setup.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
@@ -4206,7 +4494,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine trial
         trial = data.Routine(
             name='trial',
-            components=[background, grid_outer, grid_horizontal, grid_vertical, grid_center, image_1, image_2, image_3, text_fixation, text_prompt, grid_outer_test, grid_horizontal_test, grid_vertical_test, grid_center_test, image_test, key_response_test, text_debug_only],
+            components=[background, grid_outer, grid_horizontal, grid_vertical, grid_center, image_1, image_2, image_3, text_fixation, text_prompt, grid_outer_test, grid_horizontal_test, grid_vertical_test, grid_center_test, image_test, key_response_test],
         )
         trial.status = NOT_STARTED
         continueRoutine = True
@@ -4241,7 +4529,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         prompt_trigger_started = False
         test_trigger_started = False
         
-        text_debug_only.setText(trial_type)
         # store start times for trial
         trial.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         trial.tStart = globalClock.getTime(format='float')
@@ -4818,7 +5105,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_response_test.status = FINISHED
                     key_response_test.status = FINISHED
             if key_response_test.status == STARTED and not waitOnFlip:
-                theseKeys = key_response_test.getKeys(keyList=['y', 'n'], ignoreKeys=["escape"], waitRelease=False)
+                theseKeys = key_response_test.getKeys(keyList=['1', '2'], ignoreKeys=["escape"], waitRelease=False)
                 _key_response_test_allKeys.extend(theseKeys)
                 if len(_key_response_test_allKeys):
                     key_response_test.keys = _key_response_test_allKeys[-1].name  # just the last key pressed
@@ -4867,40 +5154,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 win.callOnFlip(eyetracker.sendMessage, test_start_code)
                 test_trigger_started = True
             
-            
-            # *text_debug_only* updates
-            
-            # if text_debug_only is starting this frame...
-            if text_debug_only.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
-                # keep track of start time/frame for later
-                text_debug_only.frameNStart = frameN  # exact frame index
-                text_debug_only.tStart = t  # local t and not account for scr refresh
-                text_debug_only.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text_debug_only, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'text_debug_only.started')
-                # update status
-                text_debug_only.status = STARTED
-                text_debug_only.setAutoDraw(True)
-            
-            # if text_debug_only is active this frame...
-            if text_debug_only.status == STARTED:
-                # update params
-                pass
-            
-            # if text_debug_only is stopping this frame...
-            if text_debug_only.status == STARTED:
-                # is it time to stop? (based on local clock)
-                if tThisFlip > 19.15-frameTolerance:
-                    # keep track of stop time/frame for later
-                    text_debug_only.tStop = t  # not accounting for scr refresh
-                    text_debug_only.tStopRefresh = tThisFlipGlobal  # on global time
-                    text_debug_only.frameNStop = frameN  # exact frame index
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'text_debug_only.stopped')
-                    # update status
-                    text_debug_only.status = FINISHED
-                    text_debug_only.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
