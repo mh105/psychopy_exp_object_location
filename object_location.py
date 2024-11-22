@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Thu Oct 24 15:54:39 2024
+    on Fri Nov 22 15:26:32 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -3977,15 +3977,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-        # get names of stimulus parameters
-        if practice_trials.trialList in ([], [None], None):
-            params = []
-        else:
-            params = practice_trials.trialList[0].keys()
-        # save data for this loop
-        practice_trials.saveAsText(filename + 'practice_trials.csv', delim=',',
-            stimOut=params,
-            dataOut=['n','all_mean','all_std', 'all_raw'])
         
         # --- Prepare to start Routine "practice_checkpoint" ---
         # create an object to store info about Routine practice_checkpoint
@@ -5217,15 +5208,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
         thisSession.sendExperimentData()
-    # get names of stimulus parameters
-    if trials.trialList in ([], [None], None):
-        params = []
-    else:
-        params = trials.trialList[0].keys()
-    # save data for this loop
-    trials.saveAsText(filename + 'trials.csv', delim=',',
-        stimOut=params,
-        dataOut=['n','all_mean','all_std', 'all_raw'])
     
     # --- Prepare to start Routine "__end__" ---
     # create an object to store info about Routine __end__
