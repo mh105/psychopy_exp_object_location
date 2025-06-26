@@ -1,7 +1,8 @@
 # Object location task
-Last edit: 11/22/2024
+Last edit: 06/25/2025
 
 ## Edit history
+- 06/25/2025 by Alex He - updated image stimulus randomization such that the same images are reserved for practice
 - 11/22/2024 by Alex He - removed summary csv saving since no trialList used
 - 10/24/2024 by Alex He - added a print message of task ID at the onset of task
 - 10/12/2024 by Alex He - increased logging granularity from warning to debug (maximal level)

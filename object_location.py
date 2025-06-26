@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Fri Nov 22 15:26:32 2024
+    on Wed Jun 25 19:47:39 2025
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -205,7 +205,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/alexhe/Dropbox (Personal)/Active_projects/PsychoPy/exp_object_location/object_location.py',
+        originPath='/Users/alexhe/Library/CloudStorage/Dropbox/Active_projects/PsychoPy/exp_object_location/object_location.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -692,7 +692,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Experiment' code from condition_setup
     # Set up condition arrays for the experiment
     rng = np.random.default_rng()
-    image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(1, 248)])
+    image_filenames = ['resource/' + str(x).zfill(3) + '.bmp' for x in range(1, 248)]
     image_dot_fn = 'resource/image_dot.png'  # dot image for location trials
     
     conditions = ['objsame', 'objdifferent', 'locsame', 'locdifferent', 'objlocsame', 'objlocdifferent']
@@ -711,11 +711,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # image locations
     image_loc_practice_list = [rng.permutation(locations) for _ in range(n_trials_practice)]
     # image filenames
-    image_fn_practice = image_filenames[:n_objects_practice]
+    image_fn_practice = rng.permutation(image_filenames[:n_objects_practice])
     # package the images into nested lists of 3 objects
     image_fn_practice_list = [image_fn_practice[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials_practice)]
     # only a single novel object used during practice
-    image_fn_novel_practice = image_filenames[n_objects_practice]
+    image_fn_novel_practice = rng.permutation(image_filenames[n_objects_practice])
     
     # Main trials
     n_trials_per_condition = 12  # each condition is repeated 12 times
@@ -726,11 +726,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # image locations
     image_loc_list = [rng.permutation(locations) for _ in range(n_trials)]
     # image filenames - skipping images already used for practice trials
-    image_fn = image_filenames[n_objects_practice + 1:n_objects_practice + 1 + n_objects]
+    image_fn = rng.permutation(image_filenames[n_objects_practice + 1:n_objects_practice + 1 + n_objects])
     # package the images into nested lists of 3 objects
     image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]
     # novel objects appear one at a time so no need to package - cast to list for pop()
-    image_fn_novel_list = image_filenames[n_objects_practice + 1 + n_objects:].tolist()
+    image_fn_novel_list = rng.permutation(image_filenames[n_objects_practice + 1 + n_objects:]).tolist()
     
     assert len(image_filenames) == 247, "Incorrect number of picture stimuli loaded."
     assert len(image_filenames) == (n_objects_per_trial + 1 / n_conditions) * (n_trials_practice + n_trials), "Incorrect number of trials."
